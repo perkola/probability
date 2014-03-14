@@ -47,15 +47,13 @@ func Mode(set []float32) []float32 {
   var mode []float32
   var n int
   for k, v := range m {
-    if v > 1 {
-      switch {
-        case v < n:
-        case v > n:
-          n = v
-          mode = append(mode[:0], k)
-        default:
-          mode = append(mode, k)
-      }
+    switch {
+      case v < n:
+      case v > n:
+        n = v
+        mode = append(mode[:0], k)
+      default:
+        mode = append(mode, k)
     }
   }
 	return mode
